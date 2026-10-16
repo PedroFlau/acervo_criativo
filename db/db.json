@@ -133,5 +133,13 @@
                 "conquistas": 5
             }
         ]
-    }
+    },
+    "ilustracoes": [
+        {
+            "id": 1,
+            "nome": "Noturno",
+            "foto": "/public/assets/images/noturno.jpeg",
+            "data": "04:08:2023"
+        }
+    ]
 }

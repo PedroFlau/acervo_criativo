@@ -10,6 +10,11 @@
 
     <header class="cabecalho">
         <h1>Meu Acervo Criativo</h1>
+        <!-- Botão de tema (dentro do cabeçalho para ficar na mesma linha) -->
+        <button id="theme-toggle" aria-label="Alternar tema">
+            <span class="icon-sun">☀︎</span>
+            <span class="icon-moon" style="display: none;">☾</span>
+        </button>
     </header>
 
     <nav class="menu">
@@ -23,17 +28,8 @@
 
         <section id="ilustracoes">
             <h2>Ultimas Ilustrações</h2>
-            <div class="grade-ilustracoes">
-                <article class="card-ilustracao">
-                    <img src="/public/assets/images/noturno.jpeg" alt="noturno">
-                    <span class="titulo-hover">Noturno</span>
-                </article>
-                <article class="card-ilustracao"></article>
-                <article class="card-ilustracao"></article>
-                <article class="card-ilustracao"></article>
-                <article class="card-ilustracao"></article>
-                <article class="card-ilustracao"></article>
-            </div>
+            <!-- Container vazio onde o JS vai injetar os cards -->
+            <div class="grade-ilustracoes" id="container-ilustracoes"></div>
         </section>
 
         <section id="estante">
@@ -98,7 +94,7 @@
         <p>Meu Acervo Criativo - trabalho de faculdade</p>
     </footer>
 
-    <!-- Caminho relativo corrigido -->
+    <!-- Caminho original mantido -->
     <script src="/public/assets/js/index.js"></script>
 </body>
 </html>

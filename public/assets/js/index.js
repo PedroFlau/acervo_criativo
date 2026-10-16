@@ -1,27 +1,32 @@
 async function carregarDados() {
     try {
-        const [resEstante, resCartas, resJogos] = await Promise.all([
+        const [resEstante, resCartas, resJogos, resIlustracoes] = await Promise.all([
             fetch("http://localhost:3000/estante"),
             fetch("http://localhost:3000/cartas"),
-            fetch("http://localhost:3000/jogos")
+            fetch("http://localhost:3000/jogos"),
+            fetch("http://localhost:3000/ilustracoes")
         ]);
 
-        if (!resEstante.ok || !resCartas.ok || !resJogos.ok) {
-            throw new Error("Erro ao buscar dados do servidor");
-        }
+        // Verifica cada um individualmente para não quebrar tudo de uma vez
+        if (!resEstante.ok) console.error("Erro ao buscar Estante");
+        if (!resCartas.ok) console.error("Erro ao buscar Cartas");
+        if (!resJogos.ok) console.error("Erro ao buscar Jogos");
+        if (!resIlustracoes.ok) console.error("Erro ao buscar Ilustrações");
 
-        // Extraindo os dados de TODAS as requisições
-        const estante = await resEstante.json();
-        const cartas = await resCartas.json();
-        const jogos = await resJogos.json();
+        // Extraindo os dados (se algum falhar, o .json() pode dar erro, então usamos um fallback)
+        const estante = resEstante.ok ? await resEstante.json() : null;
+        const cartas = resCartas.ok ? await resCartas.json() : null;
+        const jogos = resJogos.ok ? await resJogos.json() : null;
+        const ilustracoes = resIlustracoes.ok ? await resIlustracoes.json() : null;
 
-        // Chamando as funções para exibir os dados
-        carregarEstante(estante);
-        carregarBarraTcg(cartas);
-        carregarJogos(jogos);
+        // Só chama a função se os dados existirem
+        if (estante) carregarEstante(estante);
+        if (cartas) carregarBarraTcg(cartas);
+        if (jogos) carregarJogos(jogos);
+        if (ilustracoes) carregarIlustracoes(ilustracoes);
 
     } catch (erro) {
-        console.error("Erro ao carregar os dados:", erro);
+        console.error("Erro crítico ao carregar os dados:", erro);
     }
 }
 
@@ -46,7 +51,6 @@ function carregarEstante(estante) {
     preencherLista(listaQueroLer, estante.categoria.quero_ler);
 }
 
-// Função utilitária para calcular porcentagem
 function calcularPorcentagem(atual, maximo) {
     return (atual / maximo) * 100;
 }
@@ -63,8 +67,6 @@ function carregarBarraTcg(cartas) {
         
         if (arrayColecoes.length > 0) {
             const info = arrayColecoes[0];
-
-            // Formata o nome: "one_piece" vira "One Piece"
             const nomeFormatado = nomeCategoria
                 .replace('_', ' ')
                 .replace(/\b\w/g, letra => letra.toUpperCase());
@@ -91,7 +93,6 @@ function carregarJogos(jogos) {
     let htmlGerado = '';
 
     jogos.jogo.forEach(jogo => {
-        // Calcula a porcentagem de conquistas
         const porcentagem = calcularPorcentagem(jogo.conquistas, jogo.conquistas_totais);
 
         htmlGerado += `
@@ -109,5 +110,55 @@ function carregarJogos(jogos) {
 
     container.innerHTML = htmlGerado;
 }
+
+function carregarIlustracoes(ilustracoes) {
+    const container = document.getElementById('container-ilustracoes');
+    if (!container) return;
+
+    let htmlGerado = '';
+
+    ilustracoes.forEach(ilustracao => {
+        htmlGerado += `
+            <article class="card-ilustracao">
+                <img src="${ilustracao.foto}" alt="${ilustracao.nome}">
+                <span class="titulo-hover">${ilustracao.nome}</span>
+            </article>
+        `;
+    });
+
+    container.innerHTML = htmlGerado;
+}
+
+// ==========================================
+// LÓGICA DO TEMA CLARO/ESCURO
+// ==========================================
+const themeToggle = document.getElementById('theme-toggle');
+const iconSun = themeToggle.querySelector('.icon-sun');
+const iconMoon = themeToggle.querySelector('.icon-moon');
+const body = document.body;
+
+// Verifica se o usuário já escolheu um tema anteriormente
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'dark') {
+    body.classList.add('dark');
+    iconSun.style.display = 'none';
+    iconMoon.style.display = 'block';
+}
+
+// Adiciona o evento de clique no botão
+themeToggle.addEventListener('click', () => {
+    // Alterna a classe 'dark' no body
+    body.classList.toggle('dark');
+    
+    // Verifica se o modo escuro está ativo agora
+    const isDark = body.classList.contains('dark');
+    
+    // Atualiza os ícones
+    iconSun.style.display = isDark ? 'none' : 'block';
+    iconMoon.style.display = isDark ? 'block' : 'none';
+    
+    // Salva a preferência no navegador
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+});
 
 carregarDados();

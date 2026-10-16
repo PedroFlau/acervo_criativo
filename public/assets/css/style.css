@@ -35,10 +35,15 @@ body.dark {
   --bg: #121212;
   --bg-surface: #1e1e1e;
   --bg-input: #2a2a2a;
-  --bg-page: #1e1e1e;
-  --blue-light: #1e3a8a;
-  --blue-soft: #172554;
-  --shadow-card: none;
+  --bg-page: #121212;
+  
+  /* Cores de destaque em amarelo */
+  --blue: #fbbf24;        
+  --blue-hover: #f59e0b;  
+  --blue-light: #451a03;  
+  --blue-soft: #2a1500;   
+  
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
 /* =========================================================
@@ -97,16 +102,19 @@ section h2 {
 }
 
 /* =========================================================
-   5. CABEÇALHO
+   5. CABEÇALHO E BOTÃO DE TEMA
    ========================================================= */
 .cabecalho {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  display: flex; /* Força o alinhamento lado a lado */
+  flex-direction: row;
+  align-items: center; /* Centraliza verticalmente */
+  justify-content: space-between; /* Título na esquerda, botão na direita */
   gap: 16px;
   padding: 10px 16px;
   border-bottom: 1px solid var(--border);
   background: var(--bg);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .cabecalho h1 {
@@ -114,6 +122,30 @@ section h2 {
   font-weight: 600;
   letter-spacing: 0.3px;
   color: var(--text);
+  margin: 0; /* Remove margens padrão que poderiam empurrar o botão */
+}
+
+/* Estilo do botão de tema (Quadrado com bordas arredondadas) */
+#theme-toggle {
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm); /* Bordas arredondadas (8px) em vez de círculo */
+    font-size: 20px;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--text);
+    transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+    flex-shrink: 0; /* Impede que o botão encolha ou caia para a linha de baixo */
+}
+
+#theme-toggle:hover {
+    background-color: var(--blue-soft);
+    border-color: var(--blue);
+    color: var(--blue);
 }
 
 /* =========================================================
