@@ -1,0 +1,137 @@
+{
+    "estante": {
+        "categoria": {
+            "lendo": [
+                {
+                    "id": 1,
+                    "nome": "Reverend Insanity",
+                    "descrição": "A história acompanha Fang Yuan, um vilão que renasce 500 anos no passado com o objetivo de alcançar a vida eterna. Ele é um protagonista implacável e amoral que usa de sua sabedoria e experiência de vidas passadas para manipular e superar seus inimigos em um mundo cruel de cultivo.",
+                    "data_inicio": "16:07:2026"
+                },
+                {
+                    "id": 2,
+                    "nome": "Shadow Slave",
+                    "descrição": "Em um mundo de fantasia sombria e horror cósmico, Sunny, um jovem que cresceu na pobreza, é escolhido por uma magia de pesadelo e ganha poderes de sombra. Ele é transportado para um reino devastado onde a humanidade precisa lutar contra criaturas monstruosas para sobreviver.",
+                    "data_inicio": "25:03:2025"
+                },
+                {
+                    "id": 3,
+                    "nome": "Radiant Blade of the Wilderness",
+                    "descrição": "Escrito pelo autor de Lord of the Mysteries, esta é uma nova série no gênero Isekai. A história segue Ding Songyan, um transmigrador da China, em um mundo de artes marciais (Xianxia) onde ele busca dominar técnicas lendárias.",
+                    "data_inicio": "05:06:2026"
+                }
+            ],
+            "lidos": [
+                {
+                    "id": 1,
+                    "nome": "Lord of Mysteries",
+                    "descrição": "Zhou Mingrui renasce como Klein Moretti em um mundo alternativo que mistura a era Vitoriana com elementos de steampunk, misticismo e horror lovecraftiano. A trama acompanha Klein enquanto ele se envolve com igrejas misteriosas e busca a verdade por trás desse mundo cheio de segredos.",
+                    "data_inicio": "27:05:2025",
+                    "data_fim": "02:07:2025"
+                },
+                {
+                    "id": 2,
+                    "nome": "Circle of Inevitability",
+                    "descrição": "Este é o segundo livro da série Mysteries e uma sequência direta de Lord of Mysteries. A história acompanha Lumian, um jovem que sente a necessidade instintiva de se tornar um Beyonder (um além-vidente) como sua irmã adotiva, enquanto lida com a ameaça cósmica do 'Círculo da Inevitabilidade'.",
+                    "data_inicio": "15:07:2025",
+                    "data_fim": "06:10:2025"
+                },
+                {
+                    "id": 3,
+                    "nome": "Red Rising",
+                    "descrição": "Primeiro livro da trilogia, é uma distopia de ficção científica em um futuro onde a humanidade colonizou outros planetas. Darrow, um 'Vermelho' (casta mais baixa) que trabalha escavando túneis em Marte, descobre que sua vida é uma mentira e se junta a um grupo de rebeldes para derrubar o sistema opressor.",
+                    "data_inicio": "10:01:2026",
+                    "data_fim": "14:01:2026"
+                },
+                {
+                    "id": 4,
+                    "nome": "Golden Son",
+                    "descrição": "Segundo livro da série Red Rising. A história continua acompanhando Darrow, que foi transformado em um 'Dourado' (casta mais alta) por um grupo rebelde. Agora, ele precisa se infiltrar na elite da sociedade para destruir o regime por dentro, enfrentando intrigas políticas e intensos conflitos.",
+                    "data_inicio": "15:01:2026",
+                    "data_fim": "18:01:2026"
+                },
+                {
+                    "id": 5,
+                    "nome": "Morning Star",
+                    "descrição": "Terceiro e último livro da trilogia Red Rising. Darrow, após sobreviver à rivalidade entre os guerreiros mais poderosos, arrisca tudo para derrubar a Sociedade opressora e liderar seu povo para a liberdade neste desfecho épico da saga.",
+                    "data_inicio": "19:01:2026",
+                    "data_fim": "21:01:2026"
+                }
+            ],
+            "quero_ler": [
+                {
+                    "id": 1,
+                    "nome": "Duna",
+                    "descrição": "Obra-prima de Frank Herbert e um marco da ficção científica. A história se passa no planeta deserto de Arrakis e acompanha o jovem Paul Atreides, herdeiro de uma família nobre que se vê envolvida em uma trama de política, religião, ecologia e misticismo pela posse da 'especiaria', a substância mais valiosa do universo.",
+                    "prioridade": "alta"
+                }
+            ]
+        }
+    },
+    "cartas": {
+        "categoria": {
+            "pokemon": [
+                {
+                    "maximo": 1025,
+                    "atual": 10,
+                    "carta": [
+                        {
+                            "id": 1,
+                            "nome": "bulbasaur",
+                            "foto": "/public/assets/images/bulbasaur.jpg",
+                            "condicao": "near_mint",
+                            "codigo": "011/120",
+                            "colecao": "151",
+                            "idioma": "Português"
+                        }
+                    ]
+                }
+            ],
+            "one_piece":[
+                {
+                    "maximo": 105,
+                    "atual": 3,
+                    "carta": [
+                        {
+                            "id": 1,
+                            "nome": "bulbasaur",
+                            "foto": "/public/assets/images/bulbasaur.jpg",
+                            "condicao": "near_mint",
+                            "codigo": "011/120",
+                            "colecao": "151",
+                            "idioma": "Português"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "jogos": {
+        "jogo": [
+            {
+                "id": 1,
+                "nome": "Hades",
+                "descrição": "Um aclamado RPG de ação roguelike da Supergiant Games. Você controla Zagreu, o filho imortal de Hades, enquanto tenta escapar do Submundo para chegar ao Monte Olimpo. A cada tentativa de fuga, o labirinto muda, e você conta com a ajuda dos deuses gregos para enfrentar hordas de inimigos. O jogo combina ação rápida, uma narrativa rica em personagens e uma trilha sonora envolvente, tudo inspirado na mitologia grega.",
+                "foto": "/public/assets/images/Hades.png",
+                "conquistas_totais": 40,
+                "conquistas": 5
+            },
+            {
+                "id": 2,
+                "nome": "Red Dead Redemption 2",
+                "descrição": "Uma épica história de honra e lealdade ambientada nos Estados Unidos de 1899, no fim da era do Velho Oeste. Você vive a jornada de Arthur Morgan, o braço direito de Dutch van der Linde, líder de uma gangue de fora da lei em fuga após um roubo dar errado. Caçado por agentes federais e caçadores de recompensas, o grupo precisa roubar, assaltar e lutar para sobreviver em um mundo implacável. Conforme divisões internas ameaçam destruir a gangue, Arthur precisa escolher entre seus próprios ideais e a lealdade a quem o criou.",
+                "foto": "/public/assets/images/RDR2.jpeg",
+                "conquistas_totais": 40,
+                "conquistas": 5
+            },
+            {
+                "id": 3,
+                "nome": "Grand Theft Auto VI",
+                "descrição": "A aguardada nova entrada da icônica franquia da Rockstar Games, ambientada no estado fictício de Leonida (inspirado na Flórida). Pela primeira vez na série, a história é centrada em uma dupla de protagonistas: Jason e Lucia, um casal de criminosos no melhor estilo 'Bonnie e Clyde'. Após um golpe aparentemente simples dar terrivelmente errado, eles são arrastados para uma conspiração criminosa que percorre todo o estado, mostrando o lado mais sombrio do lugar mais ensolarado da América. Para sobreviver, eles precisarão confiar um no outro mais do que nunca.",
+                "foto": "/public/assets/images/GTA6.jpeg",
+                "conquistas_totais": 40,
+                "conquistas": 5
+            }
+        ]
+    }
+}
