@@ -1,0 +1,307 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #2b2b2b;
+  color: #ffffff;
+}
+
+/* cabecalho */
+.cabecalho {
+  padding: 20px;
+  border-bottom: 2px solid #ffffff;
+}
+
+.cabecalho h1 {
+  font-size: 24px;
+}
+
+/* menu */
+.menu {
+  display: flex;
+  gap: 15px;
+  padding: 20px;
+  flex-wrap: wrap;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-weight: bold;
+}
+
+.menu a:hover {
+  background-color: #444444;
+}
+
+main {
+  padding: 20px;
+}
+
+section {
+  margin-bottom: 40px;
+}
+
+section h2 {
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+/* login */
+.form-login {
+  display: flex;
+  flex-direction: column;
+  max-width: 250px;
+  margin: 0 auto;
+  gap: 8px;
+}
+
+#login {
+  text-align: center;
+}
+
+.form-login label {
+  font-size: 14px;
+}
+
+.form-login input {
+  padding: 8px;
+  border: 2px solid #ffffff;
+  border-radius: 8px;
+  background-color: #3a3a3a;
+  color: #ffffff;
+}
+
+.form-login button {
+  margin-top: 10px;
+  padding: 10px;
+  border: 2px solid #ffffff;
+  border-radius: 8px;
+  background-color: #444444;
+  color: #ffffff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.form-login button:hover {
+  background-color: #555555;
+}
+
+/* grade das ilustracoes */
+.grade-ilustracoes {
+  column-count: 4;
+  column-gap: 10px;
+}
+
+.grade-ilustracoes .card-ilustracao {
+  border: 2px solid #ffffff;
+  border-radius: 8px;
+  background-color: #3a3a3a;
+  break-inside: avoid;
+  margin-bottom: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.card-ilustracao img {
+  width: 100%;
+  display: block;
+}
+
+.titulo-hover {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 8px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #ffffff;
+  font-size: 14px;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.card-ilustracao:hover .titulo-hover {
+  opacity: 1;
+}
+
+/* alturas diferentes pra dar o efeito mosaico */
+.card-ilustracao:nth-child(1) { height: 220px; }
+.card-ilustracao:nth-child(2) { height: 150px; }
+.card-ilustracao:nth-child(3) { height: 280px; }
+.card-ilustracao:nth-child(4) { height: 180px; }
+.card-ilustracao:nth-child(5) { height: 250px; }
+.card-ilustracao:nth-child(6) { height: 160px; }
+
+/* estante virtual */
+.estante {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.card-estante {
+  border: 2px solid #ffffff;
+  border-radius: 8px;
+  padding: 15px;
+  min-height: 150px;
+}
+
+.card-estante h3 {
+  font-size: 15px;
+}
+
+.lista-livros {
+  list-style: none;
+  margin-top: 10px;
+}
+
+.lista-livros li {
+  padding: 6px 0;
+  border-bottom: 1px solid #444444;
+  font-size: 14px;
+}
+
+.lista-livros li:last-child {
+  border-bottom: none;
+}
+
+/* colecoes tcg */
+.card-tcg {
+  border: 2px solid #ffffff;
+  border-radius: 8px;
+  padding: 15px;
+}
+
+.imagem-tcg {
+  height: 200px;
+  border: 1px solid #666666;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+  overflow: hidden;
+}
+
+.imagem-tcg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.barra-progresso {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.barra-progresso span {
+  width: 100px;
+}
+
+.fundo-barra {
+  flex: 1;
+  border: 1px solid #ffffff;
+  border-radius: 4px;
+  height: 14px;
+}
+
+.preenchimento {
+  height: 100%;
+  background-color: #999999;
+  border-radius: 4px;
+}
+
+/* log de games */
+.log-games {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.card-jogo {
+  border: 2px solid #ffffff;
+  border-radius: 8px;
+  padding: 15px;
+  text-align: center;
+}
+
+.foto-jogo {
+  height: 190px;
+  border: 1px solid #666666;
+  border-radius: 8px;
+  background-color: #3a3a3a;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.foto-jogo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-jogo h3 {
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+
+
+/* rodape */
+.rodape {
+  border-top: 2px solid #ffffff;
+  padding: 15px 20px;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* responsivo - tablet */
+@media (max-width: 900px) {
+
+  .grade-ilustracoes {
+    column-count: 2;
+  }
+
+  .estante {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .log-games {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+/* responsivo - celular */
+@media (max-width: 600px) {
+
+  .menu {
+    flex-direction: column;
+  }
+
+  .grade-ilustracoes {
+    column-count: 1;
+  }
+
+  .estante {
+    grid-template-columns: 1fr;
+  }
+
+  .log-games {
+    grid-template-columns: 1fr;
+  }
+
+  .form-login {
+    max-width: 100%;
+  }
+
+}

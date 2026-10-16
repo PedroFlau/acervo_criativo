@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Acervo Criativo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="cabecalho">
+        <h1>Meu Acervo Criativo</h1>
+    </header>
+
+    <nav class="menu">
+        <a href="#ilustracoes">Ilustrações</a>
+        <a href="#estante">Estante Virtual</a>
+        <a href="#tcg">Coleções TCG</a>
+        <a href="#games">Log de Games</a>
+    </nav>
+
+    <main>
+
+        <section id="ilustracoes">
+        <h2>Ultimas Ilustrações</h2>
+        <div class="grade-ilustracoes">
+            <article class="card-ilustracao">
+            <img src="/public/assets/images/noturno.jpeg" alt="noturno">
+            <span class="titulo-hover">Noturno</span>
+            </article>
+            <article class="card-ilustracao"></article>
+            <article class="card-ilustracao"></article>
+            <article class="card-ilustracao"></article>
+            <article class="card-ilustracao"></article>
+            <article class="card-ilustracao"></article>
+        </div>
+        </section>
+
+        <section id="estante">
+        <h2>Estante Virtual</h2>
+        <div class="estante">
+            <article class="card-estante">
+            <h3>Lendo</h3>
+            <ul class="lista-livros">
+                <li>Reverend Insanity</li>
+                <li>Radiant Blade of the Wilderness</li>
+            </ul>
+            </article>
+            <article class="card-estante">
+            <h3>Lidos</h3>
+            <ul class="lista-livros">
+                <li>Lord of Mysteries</li>
+                <li>Shadow Slave</li>
+                <li>Red Rising</li>
+            </ul>
+            </article>
+            <article class="card-estante">
+            <h3>Quero Ler</h3>
+            <ul class="lista-livros">
+                <li>Duna</li>
+            </ul>
+            </article>
+        </div>
+        </section>
+
+        <section id="tcg">
+        <h2>Coleções TCG</h2>
+        <article class="card-tcg">
+            <div class="imagem-tcg">
+                <img src="/public/assets/imagens/cardstcg.jpeg" alt="descrição da imagem">
+            </div>
+
+            <div class="barra-progresso">
+            <span>Pokemon</span>
+            <div class="fundo-barra">
+                <div class="preenchimento" style="width: 10%;"></div>
+            </div>
+            </div>
+
+            <div class="barra-progresso">
+            <span>One Piece</span>
+            <div class="fundo-barra">
+                <div class="preenchimento" style="width: 1%;"></div>
+            </div>
+            </div>
+        </article>
+        </section>
+
+        <section id="games">
+        <h2>Log de Games</h2>
+        <div class="log-games">
+            <article class="card-jogo">
+            <div class="foto-jogo">
+                <img src="/public/assets/imagens/Hades.png" alt="hades">
+            </div>
+            <h3>Hades</h3>
+            <div class="fundo-barra">
+                <div class="preenchimento" style="width: 25%;"></div>
+            </div>
+            </article>
+
+            <article class="card-jogo">
+            <div class="foto-jogo">
+                <img src="/public/assets/imagens/RDR2.jpeg" alt="RDR2">
+            </div>
+            <h3>Read Dead Redemption 2</h3>
+            <div class="fundo-barra">
+                <div class="preenchimento" style="width: 80%;"></div>
+            </div>
+            </article>
+
+            <article class="card-jogo">
+            <div class="foto-jogo">
+                <img src="/public/assets/imagens/GTA6.jpeg" alt="GTA6">
+            </div>
+            <h3>Grand Theft Auto VI</h3>
+            <div class="fundo-barra">
+                <div class="preenchimento" style="width: 0%;"></div>
+            </div>
+            </article>
+        </div>
+        </section>
+
+        <section id="login">
+        <h2>Login</h2>
+        <form class="form-login">
+            <label for="usuario">Usuário</label>
+            <input type="text" id="usuario" name="usuario">
+
+            <label for="senha">Senha</label>
+            <input type="password" id="senha" name="senha">
+
+            <button type="submit">Entrar</button>
+        </form>
+        </section>
+
+    </main>
+
+    <footer class="rodape">
+        <p>Meu Acervo Criativo - trabalho de faculdade</p>
+    </footer>
+
+</body>
+</html>
