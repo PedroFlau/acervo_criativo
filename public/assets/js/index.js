@@ -22,7 +22,10 @@ async function carregarDados() {
         // Só chama a função se os dados existirem
         if (estante) carregarEstante(estante);
         if (cartas) carregarBarraTcg(cartas);
-        if (jogos) carregarJogos(jogos);
+        if (jogos) {
+            carregarCarrossel(jogos);  
+            carregarJogos(jogos);
+        }
         if (ilustracoes) carregarIlustracoes(ilustracoes);
 
     } catch (erro) {
@@ -160,5 +163,71 @@ themeToggle.addEventListener('click', () => {
     // Salva a preferência no navegador
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
 });
+
+// ==========================================
+// CARROSSEL DE DESTAQUES
+// ==========================================
+let indiceAtual = 0;
+let totalSlides = 0;
+
+function carregarCarrossel(jogos) {
+    const trilha = document.getElementById('carrossel-trilha');
+    const indicadores = document.getElementById('carrossel-indicadores');
+    if (!trilha) return;
+
+    // Filtra só os jogos marcados como destaque (ou pega todos se não houver a flag)
+    const destaques = jogos.jogo.filter(j => j.destaque === true);
+    const lista = destaques.length > 0 ? destaques : jogos.jogo;
+
+    totalSlides = lista.length;
+
+    // Monta os slides
+    trilha.innerHTML = lista.map(jogo => `
+        <article class="slide">
+            <a href="detalhe.html?id=${jogo.id}">
+                <div class="slide-foto">
+                    <img src="${jogo.foto}" alt="${jogo.nome}">
+                </div>
+                <div class="slide-info">
+                    <h3>${jogo.nome}</h3>
+                    <p>${jogo.descrição}</p>
+                    <span class="slide-cta">Ver detalhes →</span>
+                </div>
+            </a>
+        </article>
+    `).join('');
+
+    // Monta os indicadores
+    indicadores.innerHTML = lista
+        .map((_, i) => `<span data-index="${i}" class="${i === 0 ? 'ativo' : ''}"></span>`)
+        .join('');
+
+    // Eventos
+    document.getElementById('btn-proximo').onclick = () => mover(1);
+    document.getElementById('btn-anterior').onclick = () => mover(-1);
+
+    indicadores.querySelectorAll('span').forEach(bolinha => {
+        bolinha.onclick = () => {
+            indiceAtual = Number(bolinha.dataset.index);
+            atualizarCarrossel();
+        };
+    });
+
+    atualizarCarrossel();
+}
+
+function mover(passo) {
+    indiceAtual = (indiceAtual + passo + totalSlides) % totalSlides;
+    atualizarCarrossel();
+}
+
+function atualizarCarrossel() {
+    const trilha = document.getElementById('carrossel-trilha');
+    trilha.style.transform = `translateX(-${indiceAtual * 100}%)`;
+
+    document.querySelectorAll('.carrossel-indicadores span').forEach((b, i) => {
+        b.classList.toggle('ativo', i === indiceAtual);
+    });
+}
 
 carregarDados();

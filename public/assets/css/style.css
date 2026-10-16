@@ -473,6 +473,150 @@ section h2 {
 
 }
 
+/* =========================================================
+   CARROSSEL DE DESTAQUES
+   ========================================================= */
+.carrossel {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.carrossel-viewport {
+    flex: 1;
+    overflow: hidden;
+    border-radius: var(--radius);
+}
+
+.carrossel-trilha {
+    display: flex;
+    transition: transform 0.45s ease;
+}
+
+.slide {
+    min-width: 100%;
+    box-sizing: border-box;
+}
+
+.slide a {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 20px;
+    padding: 18px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-card);
+    transition: border-color 0.2s;
+    height: 260px;
+}
+
+.slide a:hover { border-color: var(--blue); }
+
+.slide-foto {
+    height: 100%;
+    overflow: hidden;
+    border-radius: var(--radius-sm);
+    background: var(--bg-page);
+}
+
+.slide-foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slide-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+.slide-info h3 {
+    font-size: 22px;
+    color: var(--blue);
+    border: none;
+    padding: 0;
+}
+
+.slide-info p {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.5;
+    /* limita a 4 linhas */
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.slide-cta {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--blue);
+    margin-top: 4px;
+}
+
+/* Botões ← → */
+.carrossel-btn {
+    width: 42px;
+    height: 42px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: var(--bg-surface);
+    color: var(--text);
+    font-size: 22px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+    flex-shrink: 0;
+}
+
+.carrossel-btn:hover {
+    background: var(--blue-soft);
+    border-color: var(--blue);
+    color: var(--blue);
+}
+
+/* Indicadores (bolinhas) */
+.carrossel-indicadores {
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 6px;
+}
+
+.carrossel-indicadores span {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--border);
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.carrossel-indicadores span.ativo {
+    background: var(--blue);
+    width: 22px;
+    border-radius: 999px;
+}
+
+/* Responsivo */
+@media (max-width: 700px) {
+    .slide a {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+    .slide-foto { height: 160px; }
+    .slide-info h3 { font-size: 18px; }
+}
+
 @media (max-width: 480px) {
 
   .cabecalho { padding: 10px 14px; }
@@ -484,3 +628,4 @@ section h2 {
   section { margin-bottom: 28px; }
 
 }
+
