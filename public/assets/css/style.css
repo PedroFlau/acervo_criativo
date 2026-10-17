@@ -104,7 +104,7 @@ section h2 {
 /* =========================================================
    5. CABEÇALHO E BOTÃO DE TEMA
    ========================================================= */
-.cabecalho {
+.topbar {
   display: flex; /* Força o alinhamento lado a lado */
   flex-direction: row;
   align-items: center; /* Centraliza verticalmente */
@@ -117,7 +117,7 @@ section h2 {
   box-sizing: border-box;
 }
 
-.cabecalho h1 {
+.topbar h1 {
   font-size: 24px;
   font-weight: 600;
   letter-spacing: 0.3px;
@@ -143,6 +143,29 @@ section h2 {
 }
 
 #theme-toggle:hover {
+    background-color: var(--blue-soft);
+    border-color: var(--blue);
+    color: var(--blue);
+}
+
+/* estilo botçao de voltar */
+#return {
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm); /* Bordas arredondadas (8px) em vez de círculo */
+    font-size: 20px;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--text);
+    transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+    flex-shrink: 0; /* Impede que o botão encolha ou caia para a linha de baixo */
+}
+
+#return:hover {
     background-color: var(--blue-soft);
     border-color: var(--blue);
     color: var(--blue);

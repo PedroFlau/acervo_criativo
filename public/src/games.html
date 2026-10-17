@@ -6,8 +6,43 @@
     <title>Log de Games</title>
 
     <link rel="stylesheet" href="/public/assets/css/style.css">
+    <link rel="stylesheet" href="/public/assets/css/games.css">
 </head>
 <body>
-    
+    <header class="topbar">
+        <a href="index.html" id="return" >
+            <span class="voltar">←</span>
+        </a>
+
+        <h1>Meu Acervo Criativo</h1>
+        <!-- Botão de tema (dentro do cabeçalho para ficar na mesma linha) -->
+        <button id="theme-toggle" aria-label="Alternar tema">
+            <span class="icon-sun">☀︎</span>
+            <span class="icon-moon" style="display: none;">☾</span>
+        </button>
+    </header>
+
+    <main>
+        <!-- Título e Banner (limitados e centralizados) -->
+        <section id="cabeçalho">
+            <h1 id="titulo-jogo">Carregando...</h1>
+            <div class="banner" id="banner"></div>
+        </section>
+
+        <!-- Informações (mesma largura do banner) -->
+        <section id="info-jogo">
+            <h2>Sobre o Jogo</h2>
+            
+            <article class="card-info-jogo">
+                <p id="descricao-jogo" class="descricao-jogo"></p>
+                
+                <!-- Novo layout de conquistas -->
+                <h3 class="titulo-conquistas">Conquistas:</h3>
+                <div class="barra-progresso" id="progresso-jogo"></div>
+            </article>
+        </section>
+    </main>
+
+    <script src="/public/assets/js/jogos.js"></script>
 </body>
 </html>

@@ -99,7 +99,7 @@ function carregarJogos(jogos) {
         const porcentagem = calcularPorcentagem(jogo.conquistas, jogo.conquistas_totais);
 
         htmlGerado += `
-            <article class="card-jogo">
+            <a href="games.html?id=${jogo.id}" class="card-jogo">
                 <div class="foto-jogo">
                     <img src="${jogo.foto}" alt="${jogo.nome}">
                 </div>
@@ -107,7 +107,7 @@ function carregarJogos(jogos) {
                 <div class="fundo-barra">
                     <div class="preenchimento" style="width: ${porcentagem}%;"></div>
                 </div>
-            </article>
+            </a>
         `;
     });
 
