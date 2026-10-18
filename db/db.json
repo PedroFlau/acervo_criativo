@@ -112,31 +112,40 @@
                 "id": 1,
                 "nome": "Hades",
                 "nota": 4.5,
-                "genero": "",
+                "genero": ["roguelike", "RPG", "Action"],
+                "desenvolvedora": "Supergiant Games",
+                "data_lancamento": "2020",
                 "descrição": "Um aclamado RPG de ação roguelike da Supergiant Games. Você controla Zagreu, o filho imortal de Hades, enquanto tenta escapar do Submundo para chegar ao Monte Olimpo. A cada tentativa de fuga, o labirinto muda, e você conta com a ajuda dos deuses gregos para enfrentar hordas de inimigos. O jogo combina ação rápida, uma narrativa rica em personagens e uma trilha sonora envolvente, tudo inspirado na mitologia grega.",
                 "foto": "/public/assets/images/Hades.png",
                 "conquistas_totais": 49,
-                "conquistas": 5
+                "conquistas": 5,
+                "destaque": true
             },
             {
                 "id": 2,
                 "nome": "Red Dead Redemption 2",
                 "nota": 5,
-                "genero": "",
+                "genero": ["Action", "Adventure"],
+                "desenvolvedora": "Rockstar Games",
+                "data_lancamento": "2018",
                 "descrição": "Uma épica história de honra e lealdade ambientada nos Estados Unidos de 1899, no fim da era do Velho Oeste. Você vive a jornada de Arthur Morgan, o braço direito de Dutch van der Linde, líder de uma gangue de fora da lei em fuga após um roubo dar errado. Caçado por agentes federais e caçadores de recompensas, o grupo precisa roubar, assaltar e lutar para sobreviver em um mundo implacável. Conforme divisões internas ameaçam destruir a gangue, Arthur precisa escolher entre seus próprios ideais e a lealdade a quem o criou.",
                 "foto": "/public/assets/images/RDR2.jpeg",
                 "conquistas_totais": 51,
-                "conquistas": 30
+                "conquistas": 30,
+                "destaque": true
             },
             {
                 "id": 3,
                 "nome": "Grand Theft Auto VI",
                 "nota": 0,
-                "genero": "",
+                "genero": ["Action", "Adventure"],
+                "desenvolvedora": "Rockstar Games",
+                "data_lancamento": "2026",
                 "descrição": "A aguardada nova entrada da icônica franquia da Rockstar Games, ambientada no estado fictício de Leonida (inspirado na Flórida). Pela primeira vez na série, a história é centrada em uma dupla de protagonistas: Jason e Lucia, um casal de criminosos no melhor estilo 'Bonnie e Clyde'. Após um golpe aparentemente simples dar terrivelmente errado, eles são arrastados para uma conspiração criminosa que percorre todo o estado, mostrando o lado mais sombrio do lugar mais ensolarado da América. Para sobreviver, eles precisarão confiar um no outro mais do que nunca.",
                 "foto": "/public/assets/images/GTA6.jpeg",
                 "conquistas_totais": 40,
-                "conquistas": 0
+                "conquistas": 0,
+                "destaque": false
             }
         ]
     },

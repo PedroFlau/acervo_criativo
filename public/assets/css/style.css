@@ -102,13 +102,13 @@ section h2 {
 }
 
 /* =========================================================
-   5. CABEÇALHO E BOTÃO DE TEMA
+   5. CABEÇALHO E BOTÕES DO TOPO
    ========================================================= */
 .topbar {
-  display: flex; /* Força o alinhamento lado a lado */
+  display: flex; 
   flex-direction: row;
-  align-items: center; /* Centraliza verticalmente */
-  justify-content: space-between; /* Título na esquerda, botão na direita */
+  align-items: center; 
+  justify-content: space-between; 
   gap: 16px;
   padding: 10px 16px;
   border-bottom: 1px solid var(--border);
@@ -122,14 +122,14 @@ section h2 {
   font-weight: 600;
   letter-spacing: 0.3px;
   color: var(--text);
-  margin: 0; /* Remove margens padrão que poderiam empurrar o botão */
+  margin: 0; 
 }
 
-/* Estilo do botão de tema (Quadrado com bordas arredondadas) */
+/* Estilo do botão de tema */
 #theme-toggle {
     background: none;
     border: 1px solid var(--border);
-    border-radius: var(--radius-sm); /* Bordas arredondadas (8px) em vez de círculo */
+    border-radius: var(--radius-sm); 
     font-size: 20px;
     width: 42px;
     height: 42px;
@@ -139,7 +139,7 @@ section h2 {
     cursor: pointer;
     color: var(--text);
     transition: background-color 0.2s, border-color 0.2s, color 0.2s;
-    flex-shrink: 0; /* Impede que o botão encolha ou caia para a linha de baixo */
+    flex-shrink: 0; 
 }
 
 #theme-toggle:hover {
@@ -148,11 +148,11 @@ section h2 {
     color: var(--blue);
 }
 
-/* estilo botçao de voltar */
+/* Botão de voltar */
 #return {
     background: none;
     border: 1px solid var(--border);
-    border-radius: var(--radius-sm); /* Bordas arredondadas (8px) em vez de círculo */
+    border-radius: var(--radius-sm); 
     font-size: 20px;
     width: 42px;
     height: 42px;
@@ -162,7 +162,7 @@ section h2 {
     cursor: pointer;
     color: var(--text);
     transition: background-color 0.2s, border-color 0.2s, color 0.2s;
-    flex-shrink: 0; /* Impede que o botão encolha ou caia para a linha de baixo */
+    flex-shrink: 0; 
 }
 
 #return:hover {
@@ -459,45 +459,7 @@ section h2 {
 }
 
 /* =========================================================
-   13. RESPONSIVO — TABLET
-   ========================================================= */
-@media (max-width: 900px) {
-
-  .grade-ilustracoes { column-count: 2; }
-
-  .estante { grid-template-columns: repeat(2, 1fr); }
-
-  .log-games { grid-template-columns: repeat(2, 1fr); }
-
-}
-
-/* =========================================================
-   14. RESPONSIVO — CELULAR
-   ========================================================= */
-@media (max-width: 600px) {
-
-  .menu {
-    flex-direction: column;
-    padding: 14px;
-  }
-
-  .menu a { width: 100%; text-align: center; }
-
-  .grade-ilustracoes { column-count: 1; }
-
-  .estante { grid-template-columns: 1fr; }
-
-  .log-games { grid-template-columns: 1fr; }
-
-  .form-login {
-    max-width: 100%;
-    padding: 20px 16px;
-  }
-
-}
-
-/* =========================================================
-   CARROSSEL DE DESTAQUES
+   13. CARROSSEL DE DESTAQUES
    ========================================================= */
 .carrossel {
     position: relative;
@@ -520,6 +482,7 @@ section h2 {
 .slide {
     min-width: 100%;
     box-sizing: border-box;
+    display: flex; /* Garante que o link preencha o slide */
 }
 
 .slide a {
@@ -533,6 +496,7 @@ section h2 {
     box-shadow: var(--shadow-card);
     transition: border-color 0.2s;
     height: 260px;
+    width: 100%; /* Área clicável total */
 }
 
 .slide a:hover { border-color: var(--blue); }
@@ -597,6 +561,7 @@ section h2 {
     justify-content: center;
     transition: background-color 0.2s, border-color 0.2s, color 0.2s;
     flex-shrink: 0;
+    z-index: 10;
 }
 
 .carrossel-btn:hover {
@@ -613,6 +578,7 @@ section h2 {
     transform: translateX(-50%);
     display: flex;
     gap: 6px;
+    z-index: 10;
 }
 
 .carrossel-indicadores span {
@@ -631,12 +597,11 @@ section h2 {
 }
 
 /* =========================================================
-   15. SOBRE O ALUNO (Criador do Site)
+   14. SOBRE O ALUNO (Criador do Site)
    ========================================================= */
-
 #sobre-aluno {
-    max-width: 1175px; /* Mesma largura do card */
-    margin: 0 auto 60px auto;   /* Centraliza a section inteira na tela */
+    max-width: 1175px; 
+    margin: 0 auto 60px auto;   
 }
 
 .card-aluno {
@@ -650,11 +615,10 @@ section h2 {
   box-shadow: var(--shadow-card);
   max-width: 800px;
   margin: 0 auto;
-  position: relative; /* Necessário para a linha azul no topo */
+  position: relative; 
   overflow: hidden;
 }
 
-/* Linha decorativa no topo do card (usa a cor do tema) */
 .card-aluno::before {
   content: "";
   position: absolute;
@@ -665,11 +629,10 @@ section h2 {
   background-color: var(--blue);
 }
 
-/* Ícone do aluno (substituindo a foto) */
 .icone-aluno {
   width: 100px;
   height: 100px;
-  font-size: 48px; /* Tamanho do emoji */
+  font-size: 48px; 
   display: flex;
   align-items: center;
   justify-content: center;
@@ -681,10 +644,9 @@ section h2 {
 }
 
 .card-aluno:hover .icone-aluno {
-  transform: scale(1.05); /* Efeito sutil ao passar o mouse */
+  transform: scale(1.05); 
 }
 
-/* Container de texto */
 .info-aluno {
   display: flex;
   flex-direction: column;
@@ -694,8 +656,8 @@ section h2 {
 .info-aluno h3 {
   font-size: 24px;
   font-weight: 600;
-  color: var(--text); /* Remove o azul padrão e usa a cor do texto */
-  border-bottom: none; /* Remove a linha do h3 global */
+  color: var(--text); 
+  border-bottom: none; 
   padding-bottom: 0;
   margin: 0;
 }
@@ -706,7 +668,6 @@ section h2 {
   color: var(--text-muted);
 }
 
-/* Botões de link (GitHub, LinkedIn, etc.) */
 .links-aluno {
   display: flex;
   gap: 12px;
@@ -730,30 +691,48 @@ section h2 {
   color: var(--blue);
 }
 
+/* =========================================================
+   15. RESPONSIVIDADE (UNIFICADA)
+   ========================================================= */
 
-/* Responsivo */
+/* TABLET (Até 900px) */
+@media (max-width: 900px) {
+  .grade-ilustracoes { column-count: 2; }
+  .estante { grid-template-columns: repeat(2, 1fr); }
+  .log-games { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* CELULAR (Até 700px) */
 @media (max-width: 700px) {
-    .slide a {
-        grid-template-columns: 1fr;
-        height: auto;
-    }
-    .slide-foto { height: 160px; }
-    .slide-info h3 { font-size: 18px; }
+  .slide a {
+      grid-template-columns: 1fr;
+      height: auto;
+  }
+  .slide-foto { height: 160px; }
+  .slide-info h3 { font-size: 18px; }
 }
 
-@media (max-width: 480px) {
-
-  .cabecalho { padding: 10px 14px; }
-
-  .cabecalho h1 { font-size: 14px; }
-
-  main { padding: 16px 12px 20px; }
-
-  section { margin-bottom: 28px; }
-
-}
-
+/* CELULAR (Até 600px) */
 @media (max-width: 600px) {
+  .menu {
+    flex-direction: column;
+    padding: 14px;
+  }
+
+  .menu a { 
+    width: 100%; 
+    text-align: center; 
+  }
+
+  .grade-ilustracoes { column-count: 1; }
+  .estante { grid-template-columns: 1fr; }
+  .log-games { grid-template-columns: 1fr; }
+
+  .form-login {
+    max-width: 100%;
+    padding: 20px 16px;
+  }
+
   .card-aluno {
     flex-direction: column;
     text-align: center;
@@ -771,3 +750,21 @@ section h2 {
   }
 }
 
+/* TELAS MUITO PEQUENAS (Até 480px) */
+@media (max-width: 480px) {
+  .topbar { /* Corrigido de .cabecalho para .topbar */
+    padding: 10px 14px; 
+  }
+
+  .topbar h1 { 
+    font-size: 18px; /* Ajustado para não quebrar em telas minúsculas */
+  }
+
+  main { 
+    padding: 16px 12px 20px; 
+  }
+
+  section { 
+    margin-bottom: 28px; 
+  }
+}

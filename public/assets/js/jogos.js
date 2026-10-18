@@ -1,6 +1,3 @@
-// ==========================================
-// CARREGAMENTO DOS DADOS DO JOGO
-// ==========================================
 async function carregarDados() {
     try {
         // 1. Pega o id da URL (ex: games.html?id=2)
@@ -12,13 +9,13 @@ async function carregarDados() {
             return;
         }
 
-        // 2. Busca todos os jogos
+        // 2. Busca todos os jogos no json-server
         const resJogos = await fetch("http://localhost:3000/jogos");
         if (!resJogos.ok) throw new Error("Erro ao buscar jogos");
 
         const dados = await resJogos.json();
 
-        // 3. Encontra o jogo pelo id
+        // 3. Encontra o jogo pelo id da URL
         const jogo = dados.jogo.find(j => j.id === Number(idJogo));
 
         if (!jogo) {
@@ -37,9 +34,7 @@ async function carregarDados() {
     }
 }
 
-// ==========================================
-// PREENCHIMENTO DO BANNER (section #cabeçalho)
-// ==========================================
+
 function carregarBanner(jogo) {
     const banner = document.getElementById('banner');
     if (!banner) return;
@@ -47,21 +42,49 @@ function carregarBanner(jogo) {
     banner.innerHTML = `<img src="${jogo.foto}" alt="${jogo.nome}">`;
 }
 
-// ==========================================
-// PREENCHIMENTO DAS INFORMAÇÕES (section #info-jogo)
-// ==========================================
+
 function carregarInfoJogo(jogo) {
     const titulo = document.getElementById('titulo-jogo');
     const descricao = document.getElementById('descricao-jogo');
+    const detalhes = document.getElementById('detalhes-jogo');
     const progresso = document.getElementById('progresso-jogo');
 
+    // Título e Descrição
     if (titulo) titulo.textContent = jogo.nome;
     if (descricao) descricao.textContent = jogo.descrição;
 
+    // Ficha Técnica (Desenvolvedora, Gênero, Lançamento, Nota)
+    if (detalhes) {
+        // Transforma o array ["Ação", "RPG"] em "Ação, RPG"
+        const generosFormatados = Array.isArray(jogo.genero) ? jogo.genero.join(', ') : jogo.genero;
+        
+        // Se a nota for maior que 0, mostra a estrela, senão mostra "Não avaliado"
+        const notaFormatada = jogo.nota > 0 ? `⭐ ${jogo.nota} / 5` : 'Não avaliado';
+
+        detalhes.innerHTML = `
+            <div class="item-detalhe">
+                <span class="label">Desenvolvedora</span>
+                <span class="valor">${jogo.desenvolvedora || 'Não informada'}</span>
+            </div>
+            <div class="item-detalhe">
+                <span class="label">Gênero</span>
+                <span class="valor">${generosFormatados || 'Não informado'}</span>
+            </div>
+            <div class="item-detalhe">
+                <span class="label">Lançamento</span>
+                <span class="valor">${jogo.data_lancamento || 'Não informado'}</span>
+            </div>
+            <div class="item-detalhe">
+                <span class="label">Nota</span>
+                <span class="valor">${notaFormatada}</span>
+            </div>
+        `;
+    }
+
+    // Barra de Conquistas
     if (progresso) {
         const porcentagem = (jogo.conquistas / jogo.conquistas_totais) * 100;
 
-        // Layout: [🏆] [ Barra de Progresso ] [ 30/51 ]
         progresso.innerHTML = `
             <span class="icone-trofeu" title="Conquistas">🏆</span>
             <div class="fundo-barra">
@@ -90,18 +113,14 @@ if (savedTheme === 'dark') {
 
 // Adiciona o evento de clique no botão
 themeToggle.addEventListener('click', () => {
-    // Alterna a classe 'dark' no body
     body.classList.toggle('dark');
-
-    // Verifica se o modo escuro está ativo agora
     const isDark = body.classList.contains('dark');
 
-    // Atualiza os ícones
     iconSun.style.display = isDark ? 'none' : 'block';
     iconMoon.style.display = isDark ? 'block' : 'none';
 
-    // Salva a preferência no navegador
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
 });
 
+// Inicializa a página
 carregarDados();

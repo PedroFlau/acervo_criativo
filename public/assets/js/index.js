@@ -1,3 +1,6 @@
+// ==========================================
+// CARREGAMENTO PRINCIPAL DE DADOS
+// ==========================================
 async function carregarDados() {
     try {
         const [resEstante, resCartas, resJogos, resIlustracoes] = await Promise.all([
@@ -13,7 +16,7 @@ async function carregarDados() {
         if (!resJogos.ok) console.error("Erro ao buscar Jogos");
         if (!resIlustracoes.ok) console.error("Erro ao buscar Ilustrações");
 
-        // Extraindo os dados (se algum falhar, o .json() pode dar erro, então usamos um fallback)
+        // Extraindo os dados
         const estante = resEstante.ok ? await resEstante.json() : null;
         const cartas = resCartas.ok ? await resCartas.json() : null;
         const jogos = resJogos.ok ? await resJogos.json() : null;
@@ -33,6 +36,9 @@ async function carregarDados() {
     }
 }
 
+// ==========================================
+// ESTANTE VIRTUAL
+// ==========================================
 function preencherLista(elementoUl, arrayLivros) {
     if (!elementoUl) return;
     elementoUl.innerHTML = '';
@@ -54,6 +60,9 @@ function carregarEstante(estante) {
     preencherLista(listaQueroLer, estante.categoria.quero_ler);
 }
 
+// ==========================================
+// COLEÇÕES TCG
+// ==========================================
 function calcularPorcentagem(atual, maximo) {
     return (atual / maximo) * 100;
 }
@@ -89,6 +98,9 @@ function carregarBarraTcg(cartas) {
     container.innerHTML = htmlGerado;
 }
 
+// ==========================================
+// LOG DE GAMES (CARDS)
+// ==========================================
 function carregarJogos(jogos) {
     const container = document.getElementById('container-jogos');
     if (!container) return;
@@ -114,6 +126,9 @@ function carregarJogos(jogos) {
     container.innerHTML = htmlGerado;
 }
 
+// ==========================================
+// ILUSTRAÇÕES
+// ==========================================
 function carregarIlustracoes(ilustracoes) {
     const container = document.getElementById('container-ilustracoes');
     if (!container) return;
@@ -140,7 +155,6 @@ const iconSun = themeToggle.querySelector('.icon-sun');
 const iconMoon = themeToggle.querySelector('.icon-moon');
 const body = document.body;
 
-// Verifica se o usuário já escolheu um tema anteriormente
 const savedTheme = localStorage.getItem('theme');
 if (savedTheme === 'dark') {
     body.classList.add('dark');
@@ -148,19 +162,13 @@ if (savedTheme === 'dark') {
     iconMoon.style.display = 'block';
 }
 
-// Adiciona o evento de clique no botão
 themeToggle.addEventListener('click', () => {
-    // Alterna a classe 'dark' no body
     body.classList.toggle('dark');
-    
-    // Verifica se o modo escuro está ativo agora
     const isDark = body.classList.contains('dark');
     
-    // Atualiza os ícones
     iconSun.style.display = isDark ? 'none' : 'block';
     iconMoon.style.display = isDark ? 'block' : 'none';
     
-    // Salva a preferência no navegador
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
 });
 
@@ -175,16 +183,22 @@ function carregarCarrossel(jogos) {
     const indicadores = document.getElementById('carrossel-indicadores');
     if (!trilha) return;
 
-    // Filtra só os jogos marcados como destaque (ou pega todos se não houver a flag)
+    // Filtra ESTRITAMENTE os jogos com a flag booleana "destaque: true"
     const destaques = jogos.jogo.filter(j => j.destaque === true);
-    const lista = destaques.length > 0 ? destaques : jogos.jogo;
+    
+    // Se nenhum jogo estiver em destaque, exibe um aviso
+    if (destaques.length === 0) {
+        trilha.innerHTML = '<p style="padding: 20px; text-align: center; width: 100%; color: var(--text-muted);">Nenhum jogo em destaque no momento.</p>';
+        if (indicadores) indicadores.innerHTML = '';
+        return;
+    }
 
-    totalSlides = lista.length;
+    totalSlides = destaques.length;
 
     // Monta os slides
-    trilha.innerHTML = lista.map(jogo => `
+    trilha.innerHTML = destaques.map(jogo => `
         <article class="slide">
-            <a href="detalhe.html?id=${jogo.id}">
+            <a href="games.html?id=${jogo.id}">
                 <div class="slide-foto">
                     <img src="${jogo.foto}" alt="${jogo.nome}">
                 </div>
@@ -198,14 +212,15 @@ function carregarCarrossel(jogos) {
     `).join('');
 
     // Monta os indicadores
-    indicadores.innerHTML = lista
+    indicadores.innerHTML = destaques
         .map((_, i) => `<span data-index="${i}" class="${i === 0 ? 'ativo' : ''}"></span>`)
         .join('');
 
-    // Eventos
+    // Eventos dos botões de navegação
     document.getElementById('btn-proximo').onclick = () => mover(1);
     document.getElementById('btn-anterior').onclick = () => mover(-1);
 
+    // Eventos dos indicadores (bolinhas)
     indicadores.querySelectorAll('span').forEach(bolinha => {
         bolinha.onclick = () => {
             indiceAtual = Number(bolinha.dataset.index);
@@ -213,6 +228,8 @@ function carregarCarrossel(jogos) {
         };
     });
 
+    // Reseta o índice ao carregar
+    indiceAtual = 0;
     atualizarCarrossel();
 }
 
@@ -223,6 +240,8 @@ function mover(passo) {
 
 function atualizarCarrossel() {
     const trilha = document.getElementById('carrossel-trilha');
+    if (!trilha) return;
+    
     trilha.style.transform = `translateX(-${indiceAtual * 100}%)`;
 
     document.querySelectorAll('.carrossel-indicadores span').forEach((b, i) => {
@@ -230,4 +249,5 @@ function atualizarCarrossel() {
     });
 }
 
+// Inicializa a aplicação
 carregarDados();
