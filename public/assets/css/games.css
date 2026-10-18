@@ -28,7 +28,8 @@
 /* Banner ajustado */
 #banner {
     width: 100%;
-    height: 400px;
+    /* height: 400px;  <-- Removemos a altura fixa */
+    max-height: 500px; /* Colocamos um limite máximo para não ficar gigante em telas grandes */
     overflow: hidden;
     border-radius: var(--radius);
     box-shadow: var(--shadow-card);
@@ -37,8 +38,10 @@
 
 #banner img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto; /* A altura acompanha a proporção original da imagem */
+    max-height: 500px; /* Respeita o limite máximo */
+    object-fit: cover; /* Preenche a largura toda */
+    display: block;
 }
 
 /* Card de Informações */

@@ -146,6 +146,45 @@
                 "conquistas_totais": 40,
                 "conquistas": 0,
                 "destaque": false
+            },
+            {
+                "id": 4,
+                "nome": "Assassin's Creed Mirage",
+                "nota": 4,
+                "genero": ["Action", "Adventure"],
+                "desenvolvedora": "Ubsoft",
+                "data_lancamento": "2024",
+                "descrição": "Ação e aventura com foco em furtividade e parkour, em terceira pessoa. Você é Basim, um jovem ladrão que vira assassino na Bagdá do século IX. É um retorno às origens da série: mapa mais compacto que os últimos jogos, ênfase em infiltração, assassinatos silenciosos e uso do ambiente, em vez do combate de RPG de AC Valhalla.",
+                "foto": "/public/assets/images/mirage.jpg",
+                "conquistas_totais": 61,
+                "conquistas": 50,
+                "destaque": true
+            },
+            {
+                "id": 5,
+                "nome": "Ori and the Will of the Wisps",
+                "nota": 4.5,
+                "genero": ["Action"],
+                "desenvolvedora": "Moon Studios GmbH",
+                "data_lancamento": "2020",
+                "descrição": "Plataforma 2D no estilo metroidvania, com visuais pintados à mão e trilha sonora emocionante. Você controla Ori, um pequeno espírito da floresta, explorando um mundo interconectado e ganhando novas habilidades que abrem áreas antes inacessíveis. Combina plataforma fluida, combate e uma história sensível sobre amizade e perda.",
+                "foto": "/public/assets/images/ori.jpg",
+                "conquistas_totais": 37,
+                "conquistas": 5,
+                "destaque": true
+            },
+            {
+                "id": 6,
+                "nome": "Rocket League",
+                "nota": 4,
+                "genero": ["Corrida"],
+                "desenvolvedora": "Psyonix LLC",
+                "data_lancamento": "2015",
+                "descrição": "Jogo de esportes e corrida que mistura futebol com carros. Em partidas de 3 minutos, geralmente 1v1, 2v2 ou 3v3, você dirige um carro movido a foguete e tenta acertar uma bola gigante no gol adversário. Dá para saltar, usar turbo e fazer manobras aéreas, então o jogo tem muita mecânica e habilidade envolvida.",
+                "foto": "/public/assets/images/rocket_league.jpg",
+                "conquistas_totais": 77,
+                "conquistas": 60,
+                "destaque": false
             }
         ]
     },
