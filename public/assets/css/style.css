@@ -630,6 +630,107 @@ section h2 {
     border-radius: 999px;
 }
 
+/* =========================================================
+   15. SOBRE O ALUNO (Criador do Site)
+   ========================================================= */
+
+#sobre-aluno {
+    max-width: 1175px; /* Mesma largura do card */
+    margin: 0 auto 60px auto;   /* Centraliza a section inteira na tela */
+}
+
+.card-aluno {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding: 32px;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative; /* Necessário para a linha azul no topo */
+  overflow: hidden;
+}
+
+/* Linha decorativa no topo do card (usa a cor do tema) */
+.card-aluno::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: var(--blue);
+}
+
+/* Ícone do aluno (substituindo a foto) */
+.icone-aluno {
+  width: 100px;
+  height: 100px;
+  font-size: 48px; /* Tamanho do emoji */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--blue-soft);
+  border: 2px solid var(--blue);
+  border-radius: 50%;
+  flex-shrink: 0;
+  transition: transform 0.3s;
+}
+
+.card-aluno:hover .icone-aluno {
+  transform: scale(1.05); /* Efeito sutil ao passar o mouse */
+}
+
+/* Container de texto */
+.info-aluno {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.info-aluno h3 {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--text); /* Remove o azul padrão e usa a cor do texto */
+  border-bottom: none; /* Remove a linha do h3 global */
+  padding-bottom: 0;
+  margin: 0;
+}
+
+.info-aluno p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+
+/* Botões de link (GitHub, LinkedIn, etc.) */
+.links-aluno {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.links-aluno a {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text);
+  padding: 8px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background-color: var(--bg-page);
+  transition: all 0.2s;
+}
+
+.links-aluno a:hover {
+  background-color: var(--blue-soft);
+  border-color: var(--blue);
+  color: var(--blue);
+}
+
+
 /* Responsivo */
 @media (max-width: 700px) {
     .slide a {
@@ -650,5 +751,23 @@ section h2 {
 
   section { margin-bottom: 28px; }
 
+}
+
+@media (max-width: 600px) {
+  .card-aluno {
+    flex-direction: column;
+    text-align: center;
+    padding: 28px 20px;
+    gap: 16px;
+  }
+  
+  .info-aluno {
+    align-items: center;
+  }
+
+  .links-aluno {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
 }
 
